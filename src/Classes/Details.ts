@@ -3,14 +3,11 @@ import { HasFormatter } from '../Interfaces/HasFormatter.js'
 // if we didnt have that format method then it will throw an error
 // it must have the format method, it sucessfully implements that
 class Details  {
-    constructor(
-        
+    constructor(     
         readonly name: string,
         readonly location: string,
-        private contactNumber: number
+        private contactNumber: number,
     ){}
-
-    
 }
 
 export class Master extends Details implements HasFormatter {
@@ -18,7 +15,7 @@ export class Master extends Details implements HasFormatter {
         readonly course: string,
         name: string,
         location: string,
-        contactNumber: number
+        contactNumber: number,
     ){
         super(name, location, contactNumber)
     }

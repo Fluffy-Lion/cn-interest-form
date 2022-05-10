@@ -1,4 +1,5 @@
 import { Master, Develop, CyberSC } from "./Classes/Details.js";
+import { ListTemplate } from "./Classes/ListTemplate.js";
 import { HasFormatter } from "./Interfaces/HasFormatter.js";
 
 // ensureing that whatever docOne is, it has to implement this interface
@@ -28,6 +29,11 @@ const name = document.querySelector('#name') as HTMLInputElement
 const location = document.querySelector('#location') as HTMLInputElement
 const contactNumber = document.querySelector('#contact-number') as HTMLInputElement
 
+// list template instance
+
+const ul = document.querySelector('ul')!
+const list = new ListTemplate(ul)
+
 form.addEventListener("submit", (e: Event) => {
     e.preventDefault()
 
@@ -39,10 +45,5 @@ form.addEventListener("submit", (e: Event) => {
     }else{
         doc = new CyberSC(course.value, name.value, location.value, contactNumber.valueAsNumber)
     }
-    console.log(
-        course.value, 
-        name.value, 
-        location.value, 
-        contactNumber.value, 
-    )
+    list.render(doc, course.value, 'end')
 })

@@ -1,4 +1,5 @@
 import { Master, Develop, CyberSC } from "./Classes/Details.js";
+import { ListTemplate } from "./Classes/ListTemplate.js";
 // ensureing that whatever docOne is, it has to implement this interface
 // structures code more and secures it
 let docOne;
@@ -19,6 +20,9 @@ const course = document.querySelector('#type');
 const name = document.querySelector('#name');
 const location = document.querySelector('#location');
 const contactNumber = document.querySelector('#contact-number');
+// list template instance
+const ul = document.querySelector('ul');
+const list = new ListTemplate(ul);
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     let doc;
@@ -31,5 +35,5 @@ form.addEventListener("submit", (e) => {
     else {
         doc = new CyberSC(course.value, name.value, location.value, contactNumber.valueAsNumber);
     }
-    console.log(course.value, name.value, location.value, contactNumber.value);
+    list.render(doc, course.value, 'end');
 });
