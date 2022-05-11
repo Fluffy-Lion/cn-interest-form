@@ -2,36 +2,30 @@
 // if we didnt have that format method then it will throw an error
 // it must have the format method, it sucessfully implements that
 class Details {
-    constructor(name, location, contactNumber) {
+    constructor(course, name, location, contactNumber) {
+        this.course = course;
         this.name = name;
         this.location = location;
         this.contactNumber = contactNumber;
     }
+    format() {
+        return `You (${this.name}) have shown interest in ${this.course}`;
+    }
 }
 export class Master extends Details {
     constructor(course, name, location, contactNumber) {
-        super(name, location, contactNumber);
-        this.course = course;
-    }
-    format() {
-        return `${this.name} has shown interest in ${this.course}`;
+        super(course, name, location, contactNumber);
     }
 }
 export class Develop extends Details {
     constructor(course, name, location, contactNumber) {
-        super(name, location, contactNumber);
+        super(course, name, location, contactNumber);
         this.course = course;
-    }
-    format() {
-        return `${this.name} has shown interest in ${this.course}`;
     }
 }
 export class CyberSC extends Details {
     constructor(course, name, location, contactNumber) {
-        super(name, location, contactNumber);
+        super(course, name, location, contactNumber);
         this.course = course;
-    }
-    format() {
-        return `${this.name} has shown interest in ${this.course}`;
     }
 }
